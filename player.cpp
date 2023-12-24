@@ -25,7 +25,26 @@ void Player::Initialize()
 
 void Player::Update()
 {
-    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        sf::Vector2f position = sprite.getPosition();
+        sprite.setPosition(position + sf::Vector2f(0.6, 0.0));
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        sf::Vector2f position = sprite.getPosition();
+        sprite.setPosition(position + sf::Vector2f(-0.6, 0.0));
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        sf::Vector2f position = sprite.getPosition();
+        sprite.setPosition(position + sf::Vector2f(0.0, 0.6));
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        sf::Vector2f position = sprite.getPosition();
+        sprite.setPosition(position + sf::Vector2f(0.0, -0.6));
+    }
 }
 
 void Player::Draw(sf::RenderWindow& window)
