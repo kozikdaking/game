@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "player.h"
+#include "map.h"
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
     window.setFramerateLimit(240);
    //-------------------------------INITIALIZE----------------------------
     Player player;
+    Map map;
 
    //-------------------------------INITIALIZE----------------------------
  
@@ -17,6 +19,7 @@ int main()
    //-------------------------------INITIALIZE----------------------------
    
    //--------------------------------LOAD----------------------------
+   map.Load();
    player.Load();
 
    //--------------------------------LOAD----------------------------
@@ -36,6 +39,7 @@ int main()
 
        //--------------------------------DRAW----------------------------
        window.clear();
+       map.Draw(window);
        player.Draw(window);
        window.display();
    }
