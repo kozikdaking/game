@@ -18,36 +18,39 @@ void Player::Load()
 
 void Player::Initialize()
 {
-    sprite.setScale(0.4f, 0.4f);
-    
-    
+    sprite.setScale(0.4f, 0.4f);    
 }
 
-void Player::Update()
+void Player::Update(float deltaTime)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         sf::Vector2f position = sprite.getPosition();
-        sprite.setPosition(position + sf::Vector2f(0.6, 0.0));
+        sprite.setPosition(position + sf::Vector2f(0.6, 0.0)*playerSpeed*deltaTime);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         sf::Vector2f position = sprite.getPosition();
-        sprite.setPosition(position + sf::Vector2f(-0.6, 0.0));
+        sprite.setPosition(position + sf::Vector2f(-0.6, 0.0) * playerSpeed * deltaTime);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         sf::Vector2f position = sprite.getPosition();
-        sprite.setPosition(position + sf::Vector2f(0.0, 0.6));
+        sprite.setPosition(position + sf::Vector2f(0.0, 0.6) * playerSpeed * deltaTime);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         sf::Vector2f position = sprite.getPosition();
-        sprite.setPosition(position + sf::Vector2f(0.0, -0.6));
+        sprite.setPosition(position + sf::Vector2f(0.0, -0.6) * playerSpeed * deltaTime);
     }
 }
 
 void Player::Draw(sf::RenderWindow& window)
 {
     window.draw(sprite);
+}
+
+sf::Vector2f Player::getPosition() const
+{
+    return sprite.getPosition();
 }
